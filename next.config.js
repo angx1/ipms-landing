@@ -1,6 +1,8 @@
 const nextConfig = {
-  basePath: "/ipms-landing",
-  output: "export",  // <=== enables static exports
+  output: 'export',  // for static export
+  basePath: '/ipms-landing',  // matches your deployment subdirectory
+  assetPrefix: '/ipms-landing/',  // helps with asset loading
+
   transpilePackages: ["@radix-ui/react-dialog", "@radix-ui/react-label", "@radix-ui/react-slot"],
   reactStrictMode: true,
   webpack: (config, { dev }) => {
