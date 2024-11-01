@@ -1,6 +1,6 @@
 const nextConfig = {
   output: 'export',
-  assetPrefix: './', // Use relative paths for assets
+  assetPrefix: '/', // Use relative paths for assets
 
   transpilePackages: ["@radix-ui/react-dialog", "@radix-ui/react-label", "@radix-ui/react-slot"],
   reactStrictMode: true,
