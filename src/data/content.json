@@ -1,0 +1,47 @@
+{
+    "header": {
+      "logo": "IPMS"
+    },
+    "navigation": [
+      { "name": "About", "href": "#about" },
+      { "name": "Our Process", "href": "#process" },
+      { "name": "Contact", "href": "#contact" }
+    ],
+    "hero": {
+      "title": "A Collaborative Approach to Growth",
+      "subtitle": "Empowering businesses with strategic planning and efficient management solutions.",
+      "cta": {
+        "text": "Get Started",
+        "href": "#contact"
+      }
+    },
+    "about": {
+      "title": "About IPMS",
+      "description": "At Integrated Planning and Management Solutions (IPMS), we believe in the power of holistic approaches to business challenges. Our team of expert consultants brings together years of industry experience and innovative methodologies to deliver tailored solutions that drive real results:",
+      "items": [
+        {
+          "title": "Assessment",
+          "description": "Analyzing your current processes, technology, and team capabilities."
+        },
+        {
+          "title": "Strategy",
+          "description": "Developing a tailored roadmap for optimization and growth."
+        },
+        {
+          "title": "Implementation",
+          "description": "Guiding you through the implementation process and providing ongoing support."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Ready to Scale Your Business?",
+      "description": "Let's discuss how we can help you achieve your growth goals.",
+      "cta": {
+        "text": "Contact Us",
+        "href": "#"
+      }
+    },
+    "footer": {
+      "copyright": "© 2024 IPMS. All rights reserved."
+    }
+  }
