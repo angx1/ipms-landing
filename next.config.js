@@ -1,5 +1,4 @@
 const nextConfig = {
-  //output: "export",
   assetPrefix: "/", // Use relative paths for assets
 
   transpilePackages: [
