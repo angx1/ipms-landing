@@ -1,4 +1,4 @@
-import { supabase } from "../../../utils/client";
+import { supabase } from "/app/layout";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {

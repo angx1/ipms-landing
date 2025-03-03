@@ -1,6 +1,23 @@
 import localFont from "next/font/local";
 import "./globals.css";
 
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl) {
+  console.error(
+    "NEXT_PUBLIC_SUPABASE_URL is not defined in the environment variables."
+  );
+}
+
+if (!supabaseAnonKey) {
+  console.error(
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY is not defined in the environment variables."
+  );
+}
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -11,6 +28,11 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+
+export const supabase =
+  supabaseUrl && supabaseAnonKey
+    ? createClient(supabaseUrl, supabaseAnonKey)
+    : null;
 
 export const metadata = {
   title: "IPMS",
