@@ -1,44 +1,47 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronRight, ChevronDown } from 'lucide-react'
-import { Inter, Playfair_Display, Roboto_Mono } from 'next/font/google'
-import content from '@/data/content.json'
-import ContactModal from '@/components/contact-modal'
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronRight, ChevronDown } from "lucide-react";
+import { Inter, Playfair_Display, Roboto_Mono } from "next/font/google";
+import content from "@/data/content.json";
+import ContactModal from "@/components/contact-modal";
 
-const inter = Inter({ subsets: ['latin'] })
-const playfair = Playfair_Display({ subsets: ['latin'] })
-const robotoMono = Roboto_Mono({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
+const playfair = Playfair_Display({ subsets: ["latin"] });
+const robotoMono = Roboto_Mono({ subsets: ["latin"] });
 
 export default function LandingPage() {
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true)
-  }, [])
+    setIsLoaded(true);
+  }, []);
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
-  }
+  };
 
   const navItemVariants = {
     hidden: { opacity: 0, x: -20 },
     visible: { opacity: 1, x: 0 },
-  }
+  };
 
   const scrollToBottom = () => {
-    const contactSection = document.getElementById('contact');
+    const contactSection = document.getElementById("contact");
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      contactSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
     <div className={`min-h-screen text-gray-800 ${inter.className}`}>
       <main>
-        <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-100 to-orange-100 py-20 relative">
+        <section
+          id="hero"
+          className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-100 to-orange-100 py-20 relative"
+        >
           <div className="container mx-auto px-6 text-center">
             <motion.h1
               className={`text-5xl md:text-7xl font-bold mb-6 ${playfair.className}`}
@@ -81,7 +84,7 @@ export default function LandingPage() {
               </motion.a>
             </motion.div>
           </div>
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="absolute bottom-8 flex justify-center items-center transform -translate-x-1/2 animate-bounce">
             <ChevronDown size={32} />
           </div>
         </section>
@@ -117,7 +120,11 @@ export default function LandingPage() {
                   variants={fadeIn}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                 >
-                  <h3 className={`text-2xl font-bold mb-4 ${playfair.className}`}>{item.title}</h3>
+                  <h3
+                    className={`text-2xl font-bold mb-4 ${playfair.className}`}
+                  >
+                    {item.title}
+                  </h3>
                   <p className={robotoMono.className}>{item.description}</p>
                 </motion.div>
               ))}
@@ -154,9 +161,7 @@ export default function LandingPage() {
               variants={fadeIn}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              
-                <ContactModal />
-           
+              <ContactModal />
             </motion.div>
           </div>
         </section>
@@ -168,5 +173,5 @@ export default function LandingPage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
