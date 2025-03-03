@@ -1,21 +1,25 @@
 const nextConfig = {
-  output: 'export',
-  assetPrefix: '/', // Use relative paths for assets
+  //output: "export",
+  assetPrefix: "/", // Use relative paths for assets
 
-  transpilePackages: ["@radix-ui/react-dialog", "@radix-ui/react-label", "@radix-ui/react-slot"],
+  transpilePackages: [
+    "@radix-ui/react-dialog",
+    "@radix-ui/react-label",
+    "@radix-ui/react-slot",
+  ],
   reactStrictMode: true,
   webpack: (config, { dev }) => {
     config.module.rules.push({
       test: /\.json$/,
-      type: 'json',
-    })
+      type: "json",
+    });
 
     if (dev) {
-      config.cache = false
+      config.cache = false;
     }
 
-    return config
+    return config;
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
