@@ -3,13 +3,20 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronDown } from "lucide-react";
-import { Inter, Playfair_Display, Roboto_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import content from "@/data/content.json";
 import ContactModal from "@/components/contact-modal";
 
-const inter = Inter({ subsets: ["latin"] });
-const playfair = Playfair_Display({ subsets: ["latin"] });
-const robotoMono = Roboto_Mono({ subsets: ["latin"] });
+const aptos = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Aptos.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-aptos",
+});
 
 export default function LandingPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -36,7 +43,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className={`min-h-screen text-gray-800 ${inter.className}`}>
+    <div className={`min-h-screen text-gray-800 ${aptos.className}`}>
       <main>
         <section
           id="hero"
@@ -44,7 +51,7 @@ export default function LandingPage() {
         >
           <div className="container mx-auto px-6 text-center">
             <motion.h1
-              className={`text-5xl md:text-7xl font-bold mb-6 ${playfair.className}`}
+              className="text-5xl md:text-7xl font-bold mb-6"
               initial="hidden"
               animate={isLoaded ? "visible" : "hidden"}
               variants={fadeIn}
@@ -92,7 +99,7 @@ export default function LandingPage() {
         <section id="about" className="py-20 bg-white">
           <div className="container mx-auto px-6">
             <motion.h2
-              className={`text-4xl font-bold mb-6 text-center ${playfair.className}`}
+              className="text-4xl font-bold mb-6 text-center"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -101,7 +108,7 @@ export default function LandingPage() {
               {content.about.title}
             </motion.h2>
             <motion.p
-              className="text-lg mb-6 max-w-3xl mx-auto"
+              className="text-lg mb-6 max-w-3xl mx-auto text-center"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -113,19 +120,15 @@ export default function LandingPage() {
               {content.about.items.map((item, index) => (
                 <motion.div
                   key={index}
-                  className="bg-gray-50 rounded-2xl p-6 shadow-lg"
+                  className="bg-gray-50 rounded-2xl p-6 shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeIn}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                 >
-                  <h3
-                    className={`text-2xl font-bold mb-4 ${playfair.className}`}
-                  >
-                    {item.title}
-                  </h3>
-                  <p className={robotoMono.className}>{item.description}</p>
+                  <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+                  <p>{item.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -135,7 +138,7 @@ export default function LandingPage() {
         <section id="contact" className="py-20 bg-gray-50">
           <div className="container mx-auto px-6">
             <motion.h2
-              className={`text-4xl font-bold mb-8 text-center ${playfair.className}`}
+              className="text-4xl font-bold mb-8 text-center"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -168,7 +171,8 @@ export default function LandingPage() {
       </main>
 
       <footer className="bg-white border-t border-black py-6">
-        <div className="container mx-auto px-6">
+        <div className="flex flex-row items-center mx-auto px-6">
+          <img src="/logo.svg" alt="IPMS Logo" className="h-16 w-auto mx-6" />
           <p className="text-center">{content.footer.copyright}</p>
         </div>
       </footer>
